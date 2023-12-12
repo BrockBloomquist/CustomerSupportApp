@@ -1,51 +1,26 @@
-import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 
-function BrandExample() {
+function Header() {
   return (
     <>
-      <Navbar className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="#home">Brand link</Navbar.Brand>
-        </Container>
-      </Navbar>
-      <br />
-      <Navbar className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand>Brand text</Navbar.Brand>
-        </Container>
-      </Navbar>
-      <br />
-      <Navbar className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="#home">
-            <img
-              src="/img/logo.svg"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-              alt="React Bootstrap logo"
-            />
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
-      <br />
-      <Navbar className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="#home">
-            <img
-              alt=""
-              src="/img/logo.svg"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            />{" "}
-            React Bootstrap
-          </Navbar.Brand>
-        </Container>
+      <Navbar
+        bg="light"
+        style={{
+          borderBottom: "3px solid",
+        }}
+      >
+        <Navbar.Brand>
+          <img
+            src="../assets/img/Icon_Black.png"
+            width="50px"
+            height="50px"
+            className="d-inline-block align-top"
+            alt="React Bootstrap logo"
+          />
+        </Navbar.Brand>
       </Navbar>
     </>
   );
 }
 
-export default BrandExample;
+export default Header;
