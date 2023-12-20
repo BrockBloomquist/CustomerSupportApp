@@ -73,7 +73,6 @@ export default function Survey() {
                 setBugForm({ ...bugForm, name: event.target.value })
               }
             />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
               Please Enter a Name
             </Form.Control.Feedback>

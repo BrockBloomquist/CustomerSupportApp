@@ -7,6 +7,7 @@ h6 {
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 /* body {
@@ -50,7 +51,8 @@ th {
   margin-right: auto;
   padding: 40px;
   border: 1px solid #ddd;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 100px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -73,6 +75,7 @@ th {
   background-color: #007bff;
   border: 0;
   padding: 12px;
+  margin-top: 40px;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
