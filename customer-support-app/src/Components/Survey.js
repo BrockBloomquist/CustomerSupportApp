@@ -44,7 +44,6 @@ export default function Survey() {
     //Creates a list of forms that were created
     setBugList([...BugList, newBug]);
     setValidated(true);
-    clearsForm();
   };
 
   return (
@@ -63,7 +62,7 @@ export default function Survey() {
         onSubmit={handleAddBug}
       >
         <Row className="mb-3">
-          <Form.Group as={Col} controlId="name">
+          <Form.Group as={Col} controlId="name" required>
             <Form.Label>Your Name</Form.Label>
             <Form.Control
               type="text"
@@ -75,6 +74,9 @@ export default function Survey() {
               }
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please Enter a Name
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group controlId="email">
@@ -88,7 +90,9 @@ export default function Survey() {
                 setBugForm({ ...bugForm, email: event.target.value })
               }
             />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please Enter an Email
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group controlId="description">
@@ -104,6 +108,9 @@ export default function Survey() {
                 setBugForm({ ...bugForm, description: event.target.value })
               }
             />
+            <Form.Control.Feedback type="invalid">
+              Please Enter a Description
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group controlId="priority">
