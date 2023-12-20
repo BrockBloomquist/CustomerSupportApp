@@ -55,7 +55,9 @@ th {
   margin-bottom: 100px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+.add-new-bug-form-completed {
+  display: none;
+}
 .add-new-bug-form label {
   margin-bottom: 8px;
 }
