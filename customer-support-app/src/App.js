@@ -1,8 +1,14 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./Components/Header";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Components/Header';
+import Survey from './Components/Survey';
 
 function App() {
-  return <Header />;
+	return (
+		<div>
+			<Header />
+			<Survey />
+		</div>
+	);
 }
 
 export default App;
