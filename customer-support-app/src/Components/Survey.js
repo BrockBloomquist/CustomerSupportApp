@@ -12,7 +12,7 @@ export default function Survey() {
     name: "",
     email: "",
     description: "",
-    priority: "medium",
+    type: "Bug",
   });
   const [BugList, setBugList] = useState([]);
   const [validated, setValidated] = useState(false);
@@ -22,7 +22,7 @@ export default function Survey() {
       name: "",
       email: "",
       description: "",
-      priority: "medium",
+      type: "Bug",
     });
     setValidated(false);
   };
@@ -38,12 +38,13 @@ export default function Survey() {
       name: bugForm.name,
       email: bugForm.email,
       description: bugForm.description,
-      priority: bugForm.priority,
+      type: bugForm.type,
     };
 
     //Creates a list of forms that were created
     setBugList([...BugList, newBug]);
     setValidated(true);
+    console.log(newBug);
   };
 
   return (
@@ -112,13 +113,13 @@ export default function Survey() {
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group controlId="priority">
+          <Form.Group controlId="type">
             <Form.Label>Type of Ticket</Form.Label>
             <Form.Control
               as="select"
-              value={bugForm.priority}
+              value={bugForm.type}
               onChange={(event) =>
-                setBugForm({ ...bugForm, priority: event.target.value })
+                setBugForm({ ...bugForm, type: event.target.value })
               }
             >
               <option value="Bug">Bug</option>
