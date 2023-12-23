@@ -2,6 +2,7 @@
 
 # dependencies
 /customer-support-app/node_modules
+/server/node_modules
 /.pnp
 .pnp.js
 
@@ -23,6 +24,3 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
-
-#db
-/server
