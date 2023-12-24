@@ -33,18 +33,22 @@ export default function Survey() {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
-    const newBug = {
-      id: uuidv4(),
-      name: bugForm.name,
-      email: bugForm.email,
-      description: bugForm.description,
-      type: bugForm.type,
-    };
-
-    //Creates a list of forms that were created
-    setBugList([...BugList, newBug]);
-    setValidated(true);
-    console.log(newBug);
+    const fullName = bugForm.name;
+    const email = bugForm.email;
+    const details = bugForm.description;
+    const url = "http://localhost:3005/createTicket";
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fullName: fullName,
+        email: email,
+        details: details,
+      }),
+    }).then((response) => {
+      if (response.status === 201) {
+      }
+    });
   };
 
   return (
