@@ -19,6 +19,11 @@ app.get("/tickets", async (req, res) => {
   res.send(tickets);
 });
 
+app.get("/getTicket", async (req, res) => {
+  const ticket = await getTicket();
+  res.send(ticket);
+});
+
 app.post("/createTicket", async (req, res) => {
   const { id, fullName, email, details, ticketType } = req.body;
   const ticket = await createTicket(id, fullName, email, details, ticketType);

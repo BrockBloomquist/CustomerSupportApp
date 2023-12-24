@@ -30,35 +30,35 @@ export default function Survey() {
     setValidated(false);
   };
   // Adding bug to the database
-  const handleAddBug = (event) => {
+  async function handleAddBug(event) {
     const form = event.currentTarget;
     event.preventDefault();
     if (form.checkValidity() === false) {
       event.stopPropagation();
+    } else {
+      const fullName = bugForm.name;
+      const email = bugForm.email;
+      const details = bugForm.description;
+      const type = bugForm.type;
+      const url = "http://localhost:3005/createTicket";
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: id,
+          fullName: fullName,
+          email: email,
+          details: details,
+          ticketType: type,
+        }),
+      }).then((response) => {
+        if (response.status == 201) {
+          setFormSubmitted(true);
+        }
+      });
     }
-    if (validated === true) {
-    }
-    const fullName = bugForm.name;
-    const email = bugForm.email;
-    const details = bugForm.description;
-    const type = bugForm.type;
-    const url = "http://localhost:3005/createTicket";
-    fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id: id,
-        fullName: fullName,
-        email: email,
-        details: details,
-        ticketType: type,
-      }),
-    }).then((res) => {
-      if (res.statusCode === 201) {
-        setFormSubmitted(true);
-      }
-    });
-  };
+    setValidated(true);
+  }
 
   return (
     <div>
