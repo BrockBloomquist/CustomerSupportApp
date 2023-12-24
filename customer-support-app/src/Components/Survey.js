@@ -7,8 +7,9 @@ import Button from "react-bootstrap/Button";
 import "../Css Properties/Survey.css";
 
 export default function Survey() {
+  const id = uuidv4();
   const [bugForm, setBugForm] = useState({
-    id: uuidv4(),
+    id: id,
     name: "",
     email: "",
     description: "",
@@ -36,18 +37,18 @@ export default function Survey() {
     const fullName = bugForm.name;
     const email = bugForm.email;
     const details = bugForm.description;
+    const type = bugForm.type;
     const url = "http://localhost:3005/createTicket";
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        id: id,
         fullName: fullName,
         email: email,
         details: details,
+        ticketType: type,
       }),
-    }).then((response) => {
-      if (response.status === 201) {
-      }
     });
   };
 

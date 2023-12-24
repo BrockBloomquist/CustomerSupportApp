@@ -26,11 +26,11 @@ export async function getTicket(id) {
   return rows[0];
 }
 
-export async function createTicket(fullname, email, details) {
-  const [result] = await pool.query(
+export async function createTicket(id, fullname, email, details, type) {
+  await pool.query(
     `
-  INSERT INTO tickets (fullname, email, details)
-  VALUES (?, ?, ?)`,
-    [fullname, email, details]
+  INSERT INTO tickets (id, fullname, email, details, ticketType)
+  VALUES (?, ?, ?, ?, ?)`,
+    [id, fullname, email, details, type]
   );
 }

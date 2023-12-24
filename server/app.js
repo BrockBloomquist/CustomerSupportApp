@@ -20,7 +20,7 @@ app.get("/tickets", async (req, res) => {
 });
 
 app.post("/createTicket", async (req, res) => {
-  const { fullName, email, details } = req.body;
-  const ticket = await createTicket(fullName, email, details);
+  const { id, fullName, email, details, ticketType } = req.body;
+  const ticket = await createTicket(id, fullName, email, details, ticketType);
   res.sendStatus(201).send(ticket);
 });
