@@ -52,7 +52,7 @@ export default function Survey() {
           ticketType: type,
         }),
       }).then((response) => {
-        if (response.status == 201) {
+        if (response.status === 201) {
           setFormSubmitted(true);
         }
       });
