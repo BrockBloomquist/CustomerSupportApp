@@ -3,7 +3,7 @@ CREATE DATABASE customer_support_app;
 USE customer_support_app;
 
 CREATE TABLE tickets (
-id integer PRIMARY KEY,
+id varchar(255) PRIMARY KEY,
 fullName VARCHAR(255) NOT NULL,
 email varchar(255) not null,
 details TEXT NOT NULL,
