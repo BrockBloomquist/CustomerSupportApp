@@ -34,11 +34,3 @@ export async function createTicket(id, fullname, email, details, type) {
     [id, fullname, email, details, type]
   );
 }
-
-async function clearTable(tableName) {
-  await pool.query(
-    `
-  DELETE FROM ?`,
-    [tableName]
-  );
-}
