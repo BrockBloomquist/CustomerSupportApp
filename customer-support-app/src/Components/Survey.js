@@ -40,7 +40,7 @@ export default function Survey() {
       const email = bugForm.email;
       const details = bugForm.description;
       const type = bugForm.type;
-      const url = "http://localhost:3005/createTicket";
+      const url = `${process.env.MYSQL_IP_ADDRESS}/createTicket`;
       fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
