@@ -6,6 +6,9 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import "../Css Properties/Survey.css";
+import { useEffect } from "react";
+
+const serv = "http://localhost:3005";
 
 export default function Survey() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -29,6 +32,8 @@ export default function Survey() {
     });
     setValidated(false);
   };
+  useEffect(() => {});
+
   // Adding bug to the database
   async function handleAddBug(event) {
     const form = event.currentTarget;
@@ -40,7 +45,7 @@ export default function Survey() {
       const email = bugForm.email;
       const details = bugForm.description;
       const type = bugForm.type;
-      const url = `${process.env.MYSQL_IP_ADDRESS}/createTicket`;
+      const url = `${serv}/createTicket`;
       fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -62,11 +67,6 @@ export default function Survey() {
 
   return (
     <div>
-      {formSubmitted && (
-        <Alert key="success" variant="success">
-          Danger
-        </Alert>
-      )}
       <div>
         <h1>Feedback & Support</h1>
         <h6>
@@ -74,10 +74,17 @@ export default function Survey() {
           feature idea, and/or share your feedback.
         </h6>
       </div>
+      {formSubmitted && (
+        <Alert key="success" variant="success">
+          Danger
+        </Alert>
+      )}
       <Form
         noValidate
         validated={validated}
-        className="add-new-bug-form"
+        className={
+          formSubmitted ? "add-new-bug-form" : "add-new-bug-form-completed"
+        }
         onSubmit={handleAddBug}
       >
         <Row className="mb-3">
