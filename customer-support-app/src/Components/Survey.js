@@ -32,7 +32,6 @@ export default function Survey() {
     });
     setValidated(false);
   };
-  useEffect(() => {});
 
   // Adding bug to the database
   async function handleAddBug(event) {

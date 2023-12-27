@@ -15,8 +15,13 @@ app.listen(3005, () => {
 });
 
 app.get("/tickets", async (req, res) => {
-  const tickets = await getTickets();
-  res.send(tickets);
+  getTickets()
+    .then((tickets) => {
+      res.json(tickets);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
 });
 
 app.get("/getTicket", async (req, res) => {
@@ -26,6 +31,11 @@ app.get("/getTicket", async (req, res) => {
 
 app.post("/createTicket", async (req, res) => {
   const { id, fullName, email, details, ticketType } = req.body;
-  const ticket = await createTicket(id, fullName, email, details, ticketType);
-  res.sendStatus(201).send(ticket);
+  createTicket(id, fullName, email, details, ticketType)
+    .then((ticket) => {
+      res.sendStatus(201).send(ticket);
+    })
+    .catch((err) => {
+      res.sendStatus(500).send(err);
+    });
 });
