@@ -88,3 +88,23 @@ th {
 .add-new-bug-form button:hover {
   background-color: #0056b3;
 }
+
+.resubmit-btn {
+  background-color: #007bff;
+  border: 0;
+  padding: 12px;
+  margin-top: 40px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-items: center;
+  width: 100px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: block !important;
+}
+
+.resubmit-btn:hover {
+  background-color: #0056b3;
+}
