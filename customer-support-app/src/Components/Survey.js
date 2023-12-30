@@ -85,7 +85,7 @@ export default function Survey() {
           onClick={clearsForm}
           as={Col}
         >
-          Resubmit Feedback
+          Resubmit
         </Button>
       )}
       {!formSubmitted && (
@@ -159,7 +159,7 @@ export default function Survey() {
                 <option value="Feature Request">Feature Request</option>
               </Form.Control>
             </Form.Group>
-
+            {/* 
             <Form.Group controlId="formFileMultiple" className="mb-3">
               <Form.Label>Attach Files (if any)</Form.Label>
               <Form.Control
@@ -167,7 +167,7 @@ export default function Survey() {
                 multiple
                 accept="image/png, image/jpg"
               />
-            </Form.Group>
+            </Form.Group> */}
           </Row>
           <Row className="align-self-center">
             <Button variant="primary" type="submit">
