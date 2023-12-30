@@ -4,9 +4,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
-import Alert from "react-bootstrap/Alert";
 import "../Css Properties/Survey.css";
-import { useEffect } from "react";
 
 const serv = "http://localhost:3005";
 
@@ -20,7 +18,6 @@ export default function Survey() {
     description: "",
     type: "Bug",
   });
-  const [BugList, setBugList] = useState([]);
   const [validated, setValidated] = useState(false);
 
   const clearsForm = () => {
