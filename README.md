@@ -26,6 +26,8 @@ To develop the back end, ExpressJS was utilized to create end points for the fro
 In order to run the back end server, you need to open a terminal in the directory of the backend server and run `npm run dev` for development mode.
 This includes nodemon which updates the server when any changes have been made to the code base.
 
+Some additional notes: You NEED a `.env` file in order to use this on your home machine for dev mode. You can set it up using the enivironment variable names in your own `.env` file which should function as necessary but for security reasons there is no database configuration on this public repository.
+
 #### Dependencies
 
 - `Nodemon`
@@ -33,3 +35,7 @@ This includes nodemon which updates the server when any changes have been made t
 - `MySQL2`
 - `dotenv`
 - `cors`
+
+# Future Work
+
+In the future I plan on adding more to the database function in order to create queries that allow another server to interact and make GET requests in order to hook up another front end application to view all the tickets. Additionally, documentation will be provided in part with different status code responses as to not crash the server.
