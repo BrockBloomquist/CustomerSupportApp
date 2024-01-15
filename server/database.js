@@ -25,6 +25,10 @@ export async function getTicket(id) {
   );
   return rows[0];
 }
+export async function getDeletedTickets() {
+  const [rows] = await pool.query("SELECT * FROM removed_tickets");
+  return rows;
+}
 
 export async function createTicket(id, fullname, email, details, type) {
   await pool.query(
@@ -32,5 +36,33 @@ export async function createTicket(id, fullname, email, details, type) {
   INSERT INTO tickets (id, fullname, email, details, ticketType)
   VALUES (?, ?, ?, ?, ?)`,
     [id, fullname, email, details, type]
+  );
+}
+export async function pseudoDeleteTicket(id) {
+  await pool.query(
+    `
+  INSERT INTO removed_tickets 
+  SELECT * 
+  FROM tickets 
+  WHERE id = ? 
+  `,
+    [id]
+  );
+  await pool.query(
+    `
+  DELETE FROM tickets
+  WHERE id = ? 
+  `,
+    [id]
+  );
+}
+
+export async function deleteTicket(id) {
+  await pool.query(
+    `
+    DELETE FROM removed_tickets
+    WHERE id = ?
+    `,
+    [id]
   );
 }

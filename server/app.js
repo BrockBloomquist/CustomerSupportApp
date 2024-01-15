@@ -1,4 +1,10 @@
-import { getTickets, getTicket, createTicket } from "./database.js";
+import {
+  getTickets,
+  createTicket,
+  pseudoDeleteTicket,
+  deleteTicket,
+  getDeletedTickets,
+} from "./database.js";
 import express from "express";
 import cors from "cors";
 const app = express();
@@ -31,6 +37,16 @@ app.get("/tickets", async (req, res) => {
     });
 });
 
+app.get("/deleted-tickets", async (req, res) => {
+  getDeletedTickets()
+    .then((deletedTickets) => {
+      res.json(deletedTickets);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+});
+
 /**
  * Creates a Post HTTP request on a specific server which creates a new ticket
  * in the database endpoint table in AWS. If theres an error a 500 is sent to the
@@ -41,6 +57,28 @@ app.post("/createTicket", async (req, res) => {
   createTicket(id, fullName, email, details, ticketType)
     .then((ticket) => {
       res.sendStatus(201).send(ticket);
+    })
+    .catch((err) => {
+      res.sendStatus(500).send(err);
+    });
+});
+
+app.post("/delete-ticket/:id", async (req, res) => {
+  const id = req.params.id;
+  deleteTicket(id)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      res.sendStatus(500).send(err);
+    });
+});
+
+app.post("/trash-ticket/:id", async (req, res) => {
+  const id = req.params.id;
+  pseudoDeleteTicket(id)
+    .then((ticket) => {
+      res.sendStatus(200);
     })
     .catch((err) => {
       res.sendStatus(500).send(err);
